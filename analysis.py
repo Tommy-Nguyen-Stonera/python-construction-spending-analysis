@@ -4,7 +4,7 @@ US Construction Spending Analysis (2002-2016)
 Analyses monthly construction spending data from the US Census Bureau
 to uncover sector trends, seasonal patterns, and growth dynamics.
 
-Relevant to building materials and construction sales — understanding
+Relevant to building materials and construction sales: understanding
 where spending is growing (and shrinking) helps sales teams prioritise
 sectors and time their outreach.
 
@@ -161,7 +161,7 @@ plt.close(fig)
 print("[saved] 03_private_vs_public.png")
 
 
-# --- Chart 4: Sector breakdown — bar chart of latest vs earliest -----------
+# --- Chart 4: Sector breakdown, a bar chart of latest vs earliest -----------
 sector_data = []
 for name, col in SECTORS.items():
     val_start = earliest[col]
@@ -214,7 +214,7 @@ print("[saved] 05_seasonal_pattern.png")
 
 # --- Chart 6: Year-over-year growth rate ------------------------------------
 df["year"] = df["date"].dt.year
-# Exclude 2016 — only has January, so the average is misleading for YoY
+# Exclude 2016; only has January, so the average is misleading for YoY
 full_years = df[df["year"] <= 2015]
 yearly = full_years.groupby("year")[TOTAL].mean()
 yoy = yearly.pct_change() * 100
@@ -262,7 +262,7 @@ print(f"""
    construction. Public spending is more stable but much smaller.
 
 5. SEASONAL PATTERNS: Spending tends to peak mid-year (May-Aug) and dip
-   in winter months — relevant for sales planning and inventory management.
+   in winter months, relevant for sales planning and inventory management.
 
 6. FASTEST-GROWING SECTORS (2002-2016): Manufacturing, Highway & Street,
    and Lodging saw the strongest growth, signalling infrastructure
